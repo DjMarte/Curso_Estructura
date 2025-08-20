@@ -17,7 +17,7 @@ class Program
         Console.WriteLine("La suma es igual a: " + suma);
 
 
-        // Entrada via usuario
+        // Entrada via usuario/cliente
 
         // Entrada
         int numero1, numero2, totalSum;
