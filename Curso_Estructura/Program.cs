@@ -4,83 +4,94 @@ class Program
 {
     static void Main(string[] args)
     {
-        //suma de enteros
+        // Switch
 
-        //entrada
-        int num1 = 5;
-        int num2 = 6;
-
-        //proceso
-        int suma = num1 + num2;
-
-        //salida
-        Console.WriteLine("La suma es igual a: " + suma);
-
-
-        // Entrada via usuario
+        // Dias de la semana
 
         // Entrada
-        int numero1, numero2, totalSum;
+        /*int dia;
 
-        Console.Write("Ingrese un primer numero: ");
-        numero1 = Convert.ToInt32(Console.ReadLine());
-
-        Console.Write("Ingrese un segundo numero: ");
-        numero2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Ingrese un dia de la semana entre [1-7] de la semana");
+        dia = Convert.ToInt32(Console.ReadLine());
 
         // Proceso
-        totalSum = numero1 + numero2;
+        switch (dia)
+        {
+            case 1:
+                // Salida
+                System.Console.WriteLine("Domingo");
+                break;
+            case 2:
+                System.Console.WriteLine("Lunes");
+                break;
+            case 3:
+                System.Console.WriteLine("Martes");
+                break;
+            case 4:
+                System.Console.WriteLine("Miercoles");
+                break;
+            case 5:
+                System.Console.WriteLine("Jueves");
+                break;
+            case 6:
+                System.Console.WriteLine("Viernes");
+                break;
+            case 7:
+                System.Console.WriteLine("Sabado");
+                break;
+            default:
+                Console.WriteLine("Brother no son 8 dias, son solo 7 y si pusiste un caracter, tampoco va a funcionar");
+                break;
+        }
+        */
 
-        // Salida
-        Console.WriteLine("La suma es igual a: " + totalSum);
+        // Ciclo For
+
+        //for (/* Declaracion -->*/ int i = 0; /* condicion -->*/ i < 3; /* Incremento/Decremento */ i++)
+        /*{
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write($"{i}\t");
+            }
+            Console.Write("\n");
+        }*/
 
 
-        //resta de decimales
-        double a = 10.5;
-        double b = 5.5;
 
-        double resta = a - b;
+        // Ciclo while
 
-        Console.WriteLine("La resta es igual a: " + resta);
+        /*int num = 5;
 
-        //multi de decimales
-        float c = 8.5f;
-        float d = 5.5f;
-
-        float multi = c * d;
-
-        Console.WriteLine("La multi es igual a: " + multi);
+        while (num <= 5)
+        {
+            System.Console.WriteLine(num);
+            num++;
+        }*/
 
 
-        //Concatenar cadenas
-        string nombre = "Alma";
-        string Apellido = "Marte";
 
-        string nombreCompleto = nombre + " " + Apellido;
+        // Do-While
 
-        Console.WriteLine("Nombre completo: " + nombreCompleto);
+        /*int num = 0;
 
+        do
+        {
+            Console.WriteLine(num);
+            num++;
+        } while (num <= 5);
+        */
 
-        //uso de char
-        char letra = 'A';
-        Console.WriteLine("La letra es: " + letra);
+        // ciclo for each
 
-        //uso de bool
-        int edad = 15;
-        bool mayorDeEdad = edad >= 18;
+        // Entrada
+        int[] arreglo = {1, 2, 3, 4, 5};
+        //               0, 1, 2, 3, 4 -> Posiciones
 
-        Console.WriteLine("Es mayor de edad? " + mayorDeEdad);
-
-        // Operadores Logicos
-        int p = 7;
-
-        bool comprobarY = (p > 5) && (p < 10);
-        Console.WriteLine("Dame la comprobacion: " + comprobarY);
-
-        bool comprobarO = (p > 5) || (p < 6);
-        Console.WriteLine("Dame la comprobacion: " + comprobarO);
-
-        bool comprobarNegacion = !(p > 5);
-        Console.WriteLine("Dame la comprobacion: " + comprobarNegacion);
+        // Proceso
+        foreach (int numeros in arreglo)
+        {
+            // Salida
+            Console.WriteLine(numeros);
+        }
     }
 }
