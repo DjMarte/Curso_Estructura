@@ -2,85 +2,79 @@
 
 class Program
 {
+    const int FILA = 3;
+    const int COLUMNA = 3;
+
     static void Main(string[] args)
     {
-        //suma de enteros
 
-        //entrada
-        int num1 = 5;
-        int num2 = 6;
+        Genericidad<int>(50);
+        Genericidad<string>("DjMarte");
+       Console.WriteLine("----------------------------");
 
-        //proceso
-        int suma = num1 + num2;
-
-        //salida
-        Console.WriteLine("La suma es igual a: " + suma);
+        int resultado = CalcularFactorial(0);
+        Console.WriteLine($"El factorial es: {resultado}");
 
 
-        // Entrada via usuario
-
-        // Entrada
-        int numero1, numero2, totalSum;
-
-        Console.Write("Ingrese un primer numero: ");
-        numero1 = Convert.ToInt32(Console.ReadLine());
-
-        Console.Write("Ingrese un segundo numero: ");
-        numero2 = Convert.ToInt32(Console.ReadLine());
-
-        // Proceso
-        totalSum = numero1 + numero2;
-
-        // Salida
-        Console.WriteLine("La suma es igual a: " + totalSum);
+        int[,] arregloNumerico = new int[FILA, COLUMNA];
 
 
-        //resta de decimales
-        double a = 10.5;
-        double b = 5.5;
+        /*
+        for (int i = 0; i < FILA; i++) // recorrer las posiciones 
+        {
+            for (int j = 0; j < COLUMNA; j++) // recorres los valores que encuentre en cada posicion
+            {
+                System.Console.Write($"{arregloNumerico[i, j]}\t");
+            }
+            Console.WriteLine();
+        }
+        */
 
-        double resta = a - b;
+        // Arreglos tipos str
+        string[] nombres = { "Alma", "Pedro", "Samuel", "DjMarte", "Goku", "Vegeta", "Naruto" };
 
-        Console.WriteLine("La resta es igual a: " + resta);
+        foreach (var listaNombre in nombres)
+        {
+            System.Console.WriteLine(listaNombre);
+        }
 
-        //multi de decimales
-        float c = 8.5f;
-        float d = 5.5f;
+        int[] numeros = { 43, 23, 10, 25, 30 };
 
-        float multi = c * d;
-
-        Console.WriteLine("La multi es igual a: " + multi);
-
-
-        //Concatenar cadenas
-        string nombre = "Alma";
-        string Apellido = "Marte";
-
-        string nombreCompleto = nombre + " " + Apellido;
-
-        Console.WriteLine("Nombre completo: " + nombreCompleto);
-
-
-        //uso de char
-        char letra = 'A';
-        Console.WriteLine("La letra es: " + letra);
-
-        //uso de bool
-        int edad = 15;
-        bool mayorDeEdad = edad >= 18;
-
-        Console.WriteLine("Es mayor de edad? " + mayorDeEdad);
-
-        // Operadores Logicos
-        int p = 7;
-
-        bool comprobarY = (p > 5) && (p < 10);
-        Console.WriteLine("Dame la comprobacion: " + comprobarY);
-
-        bool comprobarO = (p > 5) || (p < 6);
-        Console.WriteLine("Dame la comprobacion: " + comprobarO);
-
-        bool comprobarNegacion = !(p > 5);
-        Console.WriteLine("Dame la comprobacion: " + comprobarNegacion);
+        Console.WriteLine($"La suma total del arreglo es: {CalcularSuma(numeros)}");
     }
+
+    // Funcion que recibe un arreglo
+
+    public static int CalcularSuma(int[] arregloNumeros)
+    {
+        int suma = 0; // contador
+        foreach (int numero in arregloNumeros)
+        {
+            suma = suma + numero;
+        }
+        return suma;
+    }
+
+    // Genericidad
+    public static void Genericidad<T>(T dato)
+    {
+        System.Console.WriteLine($"El tipo de dato es: {typeof(T)}");
+        System.Console.WriteLine($"El valor es: {dato}");
+    }
+
+
+    //recursividad
+    public static int CalcularFactorial(int numero)
+    {
+        if (numero == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return numero * CalcularFactorial(numero - 1);
+        }
+
+    }
+
 }
