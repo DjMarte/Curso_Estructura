@@ -4,83 +4,101 @@ class Program
 {
     static void Main(string[] args)
     {
-        //suma de enteros
+        // Búsqueda Binaria
+        int[] arreglo = { 20, 25, 15, 3, 2, 1, 9, 19, 10 };
+        //  0,  1,  2,  3, 4, 5, 6, 7,  8
 
-        //entrada
-        int num1 = 5;
-        int num2 = 6;
+        int valorBuscado = 15;
 
-        //proceso
-        int suma = num1 + num2;
+        Console.Write("Arreglo desordenado: ");
 
-        //salida
-        Console.WriteLine("La suma es igual a: " + suma);
+        foreach (int numero in arreglo)
+        {
+            System.Console.Write($"{numero}\t");
+        }
 
+        Console.WriteLine("\n");
 
-        // Entrada via usuario
+        OrdenamientoBurbuja(arreglo);
 
-        // Entrada
-        int numero1, numero2, totalSum;
+        Console.Write("Arreglo ordenado: ");
 
-        Console.Write("Ingrese un primer numero: ");
-        numero1 = Convert.ToInt32(Console.ReadLine());
+        foreach (int numero in arreglo)
+        {
+            System.Console.Write($"{numero}\t");
+        }
 
-        Console.Write("Ingrese un segundo numero: ");
-        numero2 = Convert.ToInt32(Console.ReadLine());
+        System.Console.WriteLine("\n");
 
-        // Proceso
-        totalSum = numero1 + numero2;
+        int resultado = BusquedaBinaria(arreglo, valorBuscado);
 
-        // Salida
-        Console.WriteLine("La suma es igual a: " + totalSum);
-
-
-        //resta de decimales
-        double a = 10.5;
-        double b = 5.5;
-
-        double resta = a - b;
-
-        Console.WriteLine("La resta es igual a: " + resta);
-
-        //multi de decimales
-        float c = 8.5f;
-        float d = 5.5f;
-
-        float multi = c * d;
-
-        Console.WriteLine("La multi es igual a: " + multi);
+        // Validacion
+        if (resultado == -1)
+        {
+            Console.WriteLine($"El dato {valorBuscado} no se encuentra en tu arreglo");
+        }
+        else
+        {
+            Console.WriteLine($"El dato {valorBuscado} se encuentra en el indice {resultado} de tu arreglo");
+        }
 
 
-        //Concatenar cadenas
-        string nombre = "Alma";
-        string Apellido = "Marte";
-
-        string nombreCompleto = nombre + " " + Apellido;
-
-        Console.WriteLine("Nombre completo: " + nombreCompleto);
-
-
-        //uso de char
-        char letra = 'A';
-        Console.WriteLine("La letra es: " + letra);
-
-        //uso de bool
-        int edad = 15;
-        bool mayorDeEdad = edad >= 18;
-
-        Console.WriteLine("Es mayor de edad? " + mayorDeEdad);
-
-        // Operadores Logicos
-        int p = 7;
-
-        bool comprobarY = (p > 5) && (p < 10);
-        Console.WriteLine("Dame la comprobacion: " + comprobarY);
-
-        bool comprobarO = (p > 5) || (p < 6);
-        Console.WriteLine("Dame la comprobacion: " + comprobarO);
-
-        bool comprobarNegacion = !(p > 5);
-        Console.WriteLine("Dame la comprobacion: " + comprobarNegacion);
     }
+    
+    public static int BusquedaBinaria(int[] arreglo, int valorBuscado)
+    {
+        int bajo = 0; // Se ubica en el indice inicial del arreglo
+        int alto = arreglo.Length - 1; // Se ubica en el indice final del arreglo
+
+        while (bajo <= alto)
+        {
+            int medio = bajo + (alto - bajo) / 2; // Se encuentra el centro del arreglo (posiciones)
+            //           0   + (8 - 0) / 2 = 4     
+
+            if (arreglo[medio] == valorBuscado)
+            {
+                return medio; // 4
+            }
+
+            if (arreglo[medio] < valorBuscado)
+            {
+                bajo = medio + 1; // Va a ignorar todas posiciones a la izquierda
+            }
+
+            else
+            {
+                alto = medio - 1; // Va a ignorar todas posiciones a la derecha
+            }
+
+        }
+
+        return -1; // Retorna -1, si el valorBuscado no se encuentra en nuestro arreglo.
+    }
+
+
+
+
+
+    public static void Intercambio(int x, int y, int[] arreglo)
+    {
+        int aux = arreglo[x];
+        arreglo[x] = arreglo[y];
+        arreglo[y] = aux;
+    }
+
+    public static void OrdenamientoBurbuja(int[] arreglo)
+    {
+        for (int i = 0; i < arreglo.Length - 1; i++)
+        {
+            for (int j = 0; j < arreglo.Length - 1 - i; j++)
+            {
+                if (arreglo[j] > arreglo[j + 1])
+                {
+                    Intercambio(j, j + 1, arreglo);
+                }
+            }
+        }
+    }
+
+
 }
