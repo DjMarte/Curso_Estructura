@@ -1,86 +1,157 @@
-﻿namespace Curso_Estructura;
+﻿using System.Data;
+
+namespace Curso_Estructura;
+/*
+class Program
+{
+    //Metodo busqueda secuencial
+    static int busquedaSecuencial(int[] arreglo, int valorBuscado)
+    {
+        //se recorre el arreglo
+        for (int i = 0; i < arreglo.Length; i++)
+        {
+            if (arreglo[i] == valorBuscado) //si se encuentra el valor se devuelve su posicion
+            {
+                return i; //se retorna la posicion donde se encontró el valor
+            }
+        }
+        return -1; 
+    }
+
+
+    static void Main(string[] args)
+    {
+        int[] numeros = { 10, 25, 3, 47, 8, 15, 92 }; //arreglo de enteros
+
+        int valorABuscar = 10; //valor que queremos buscar
+
+        int resultado = busquedaSecuencial(numeros, valorABuscar); //realiza la buqueda secuencial
+        
+        //-1 indica que no se encontró el valor a buscar
+        if (resultado != -1)
+        {
+            System.Console.WriteLine($"El numero {valorABuscar} se encontró en la posicion {resultado}");
+        }
+        else
+        {
+            System.Console.WriteLine($"El numero {valorABuscar} no se encontró en el arreglo");
+        }
+    }
+    
+}
+
+//Prog oriendata a objetos. Ejemplo 1
+class Persona //clase
+{
+    public string Nombre; //atributo
+
+    public Persona(string nombre) //constructor
+    {
+        Nombre = nombre;
+    }
+
+    public void Saludar() //metodo
+    {
+        System.Console.WriteLine("Hola, soy " + Nombre);
+    }
+
+
+}
+
+class Program
+{
+    static void Main()//creando un objeto e invocando su metodo
+    {
+        Persona p = new Persona("Alma");
+        p.Saludar(); //llamando al metodo
+    }
+}
+
+*/
+//Prog oriendata a objetos. Ejemplo 2 SIN CONSTRUCTOR
+
+/*
+public class Estudiante
+{
+    //atributos
+    public string Nombre { get; set; }
+    public string Apellido { get; set; }
+    public int Edad { get; set; }
+    public string Carrera { get; set; }
+    public string Matricula { get; set; }
+
+    //constructor
+
+    //metodo
+    public void MostrarInfo()
+    {
+        System.Console.WriteLine($"Nombre: {Nombre}");
+        System.Console.WriteLine($"Apellido: {Apellido}");
+        System.Console.WriteLine($"Edad: {Edad}");
+        System.Console.WriteLine($"Carrera: {Carrera}");
+        System.Console.WriteLine($"Matricula: {Matricula}");
+    }
+}
 
 class Program
 {
     static void Main(string[] args)
     {
-        //suma de enteros
+        //crear al objeto
+        Estudiante e = new Estudiante();
 
-        //entrada
-        int num1 = 5;
-        int num2 = 6;
+        //se le asignan los valores a los atributos
+        e.Nombre = "Enmanuel";
+        e.Apellido = "Garcia";
+        e.Edad = 20;
+        e.Carrera = "Ing en Sis";
+        e.Matricula = "2023-2596";
 
-        //proceso
-        int suma = num1 + num2;
-
-        //salida
-        Console.WriteLine("La suma es igual a: " + suma);
-
-
-        // Entrada via usuario
-
-        // Entrada
-        int numero1, numero2, totalSum;
-
-        Console.Write("Ingrese un primer numero: ");
-        numero1 = Convert.ToInt32(Console.ReadLine());
-
-        Console.Write("Ingrese un segundo numero: ");
-        numero2 = Convert.ToInt32(Console.ReadLine());
-
-        // Proceso
-        totalSum = numero1 + numero2;
-
-        // Salida
-        Console.WriteLine("La suma es igual a: " + totalSum);
-
-
-        //resta de decimales
-        double a = 10.5;
-        double b = 5.5;
-
-        double resta = a - b;
-
-        Console.WriteLine("La resta es igual a: " + resta);
-
-        //multi de decimales
-        float c = 8.5f;
-        float d = 5.5f;
-
-        float multi = c * d;
-
-        Console.WriteLine("La multi es igual a: " + multi);
-
-
-        //Concatenar cadenas
-        string nombre = "Alma";
-        string Apellido = "Marte";
-
-        string nombreCompleto = nombre + " " + Apellido;
-
-        Console.WriteLine("Nombre completo: " + nombreCompleto);
-
-
-        //uso de char
-        char letra = 'A';
-        Console.WriteLine("La letra es: " + letra);
-
-        //uso de bool
-        int edad = 15;
-        bool mayorDeEdad = edad >= 18;
-
-        Console.WriteLine("Es mayor de edad? " + mayorDeEdad);
-
-        // Operadores Logicos
-        int p = 7;
-
-        bool comprobarY = (p > 5) && (p < 10);
-        Console.WriteLine("Dame la comprobacion: " + comprobarY);
-
-        bool comprobarO = (p > 5) || (p < 6);
-        Console.WriteLine("Dame la comprobacion: " + comprobarO);
-
-        bool comprobarNegacion = !(p > 5);
-        Console.WriteLine("Dame la comprobacion: " + comprobarNegacion);
+        //se llama al metodo
+        e.MostrarInfo();
     }
 }
+*/
+
+//Prog oriendata a objetos. Ejemplo 2 CON CONSTRUCTOR
+public class Estudiante
+{
+    //atributos
+    public string Nombre { get; set; }
+    public string Apellido { get; set; }
+    public int Edad { get; set; }
+    public string Carrera { get; set; }
+    public string Matricula { get; set; }
+
+    //constructor
+    public Estudiante(string nombre, string apellido, int edad, string carrera, string matricula)
+    {
+        Nombre = nombre;
+        Apellido = apellido;
+        Edad = edad;
+        Carrera = carrera;
+        Matricula = matricula;
+    }
+    //metodo
+    public void MostrarInfo()
+    {
+        System.Console.WriteLine($"Nombre: {Nombre}");
+        System.Console.WriteLine($"Apellido: {Apellido}");
+        System.Console.WriteLine($"Edad: {Edad}");
+        System.Console.WriteLine($"Carrera: {Carrera}");
+        System.Console.WriteLine($"Matricula: {Matricula}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //crear al objeto
+        Estudiante e = new Estudiante("Alma", "Marte", 21, "Ing en Sis", "20220078");
+
+        //se llama al metodo
+        e.MostrarInfo();
+    }
+}
+
